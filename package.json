@@ -1,0 +1,56 @@
+{
+  "name": "slot",
+  "version": "1.0.0",
+  "main": "index.ts",
+  "scripts": {
+    "preinstall": "node -e \"require('./install').unlink()\"",
+    "postinstall": "node -e \"require('./install').link()\"",
+    "eslint": "eslint assets/Script/**/*/.ts --ignore-pattern node_modules/",
+    "multi": "ts-node-dev --no-deps --transpile-only ./test/prob_test/main.ts",
+    "dev": "ts-node-dev --no-deps --transpile-only ./test/prob_test/mainTest.ts",
+    "select-project": "node select_project.js",
+    "test-shared": "ts-node-dev --no-deps --transpile-only ./test/prob_test/maintTest.ts",
+    "start": "npm run build && node dist/test/prob_test/mainTest.js",
+    "build:live": "nodemon --exec ./node_modules/.bin/tsts-node -- ./index.ts",
+    "build": "tsc",
+    "lint:fix": "eslint --fix '*/**/*.{js,ts,tsx}'",
+    "test": "jest --runInBand --coverage",
+    "tsc-test": "tsc --project . --noEmit",
+    "jest": "jest",
+    "pretty": "prettier --write src/*/** __tests__/*/**"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "transform": {
+      "^.+\\.ts?$": "ts-jest"
+    },
+    "testTimeout": 30000
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/jest": "^27.5.2",
+    "@types/node": "16.11.21",
+    "@types/xlsx": "^0.0.36",
+    "jest": "27.4.7",
+    "node-env-run": "^4.0.2",
+    "prettier": "2.2.1",
+    "ts-jest": "27.1.3",
+    "ts-node-dev": "^1.0.0",
+    "type-fest": "2.11.1",
+    "typescript": "5"
+  },
+  "dependencies": {
+    "@championgameteam/ah-slot-game-server-plugin": "4.3.2-9-004",
+    "actionhero": "28.1.6",
+    "mersenne-twister": "^1.1.0",
+    "source-map-support": "latest",
+    "@types/node": "^20",
+    "xlsx": "^0.18.5"
+  },
+  "keywords": [],
+  "directories": {
+    "lib": "lib"
+  },
+  "description": ""
+}
