@@ -396,8 +396,17 @@ export class MainGame implements IProbIF {
     let probMachineData: ProbMachineData = new ProbMachineData();
     const { probStateDispatch, handleMachineData } = probSpin;
 
+    // if (machineData.data !== undefined) {
+    //   probMachineData = machineData.data as ProbMachineData;
+    // }
+
     if (machineData.data !== undefined) {
-      probMachineData = machineData.data as ProbMachineData;
+      let obj = {
+        ...probMachineData,
+        ...(machineData.data as ProbMachineData),
+      };
+      probMachineData = obj;
+      // probMachineData = machineData.data as ProbMachineData;
     }
 
     // 目前的機率輸入設定(使用者機率 > 機台機率 > 遊戲機率)

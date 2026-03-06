@@ -3,7 +3,7 @@ import { mainTest } from "./probTest";
 import { workerData } from "worker_threads";
 import { merge } from "./summaryMerge";
 
-const roundMonth = 1;
+const roundMonth = 10;
 const inputBet = [
   { name: "anyWay", bet: 5 },
   // { name: "anyWay", bet: 0, award: { awardItem: "CardFG-10" } }, // 虛寶卡
@@ -16,7 +16,7 @@ const totalWinLimit = 100 * 100000;
 const controlRTPEnable = false; // 是否開啟機率調控功能
 
 // 新手測試
-const isNewbieEnable = true;
+const isNewbieEnable = false;
 const numberOfNewbie = 100; // 玩家數
 const roundsPerNewbie = 1000; // 每個玩家遊玩的局數
 
